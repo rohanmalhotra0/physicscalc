@@ -36,3 +36,76 @@ def calculate_final_velocity():
     v = v0 + a * t
     print(f"The final velocity is: {v} m/s")
     
+    def plot_velocity():
+        time = np.linspace(0, t, 100)
+        velocity = v0 + a * time
+        plt.plot(time, velocity)
+        plt.xlabel("Time (s)")
+        plt.ylabel("Velocity (m/s)")
+        plt.title("Velocity vs Time")
+        plt.grid(True)
+        plt.show()
+    plot_velocity()
+def calculate_distance():
+    print("Distance Calculator")
+    print("Enter the initial velocity (m/s):")
+    v0 = float(input())
+    print("Enter the time (s):")
+    t = float(input())
+    print("Enter the acceleration (m/s^2):")
+    a = float(input())
+    d = v0 * t + 0.5 * a * t**2
+    print(f"The distance traveled is: {d} m")
+    
+    def plot_distance():
+        time = np.linspace(0, t, 100)
+        distance = v0 * time + 0.5 * a * time**2
+        plt.plot(time, distance)
+        plt.xlabel("Time (s)")
+        plt.ylabel("Distance (m)")
+        plt.title("Distance vs Time")
+        plt.grid(True)
+        plt.show()
+    plot_distance()
+def calculate_acceleration():
+    print("Acceleration Calculator")
+    print("Enter the initial velocity (m/s):")
+    v0 = float(input())
+    print("Enter the final velocity (m/s):")
+    vf = float(input())
+    print("Enter the time (s):")
+    t = float(input())
+    a = (vf - v0) / t
+    print(f"The acceleration is: {a} m/s^2")
+    
+    def plot_acceleration():
+        time = np.linspace(0, t, 100)
+        acceleration = np.full_like(time, a)
+        plt.plot(time, acceleration)
+        plt.xlabel("Time (s)")
+        plt.ylabel("Acceleration (m/s^2)")
+        plt.title("Acceleration vs Time")
+        plt.grid(True)
+        plt.show()
+    plot_acceleration()
+def calculate_kinematics():
+    print("Kinematics Calculator")
+    print("Choose an option:")
+    print("1. Projectile Motion")
+    print("2. Final Velocity")
+    print("3. Distance")
+    print("4. Acceleration")
+    choice = int(input())
+    
+    if choice == 1:
+        calculate_projectile()
+    elif choice == 2:
+        calculate_final_velocity()
+    elif choice == 3:
+        calculate_distance()
+    elif choice == 4:
+        calculate_acceleration()
+    else:
+        print("Invalid choice.")
+        
+    
